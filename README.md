@@ -1,6 +1,6 @@
-##F1Countdown
+## F1Countdown
 
-#Technologies used:
+# Technologies used:
 - React
 - Webpack
 - Babel
