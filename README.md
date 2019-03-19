@@ -18,4 +18,10 @@ npm install
 `npm run dev`
 
 Then go to http://localhost:8080
+
+## Version Control:
+
+- The default branch is set to staging.
+- Please ensure you create a new branch for your work!
+`git checkout -b <your branch name>`
     
