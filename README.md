@@ -1,11 +1,11 @@
-## F1Countdown
+# F1Countdown
 
-# Technologies used:
+## Technologies used:
 - React
 - Webpack
 - Babel
 
-#To get started:
+## To get started:
 - Clone this repo to your local directory and install dependencies:
 
 ```
