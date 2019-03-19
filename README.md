@@ -8,7 +8,8 @@
 #To get started:
 - Clone this repo to your local directory and install dependencies:
 
-```git clone https://github.com/sacullezzar/f1countdown/
+```
+git clone https://github.com/sacullezzar/f1countdown/
 cd f1countdown
 npm install
 ```
