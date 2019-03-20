@@ -14,6 +14,7 @@ class App extends Component {
 
     handleClick() {
         this.setState({ number: this.state.number += 1 })
+        return true
     }
 
     render () {

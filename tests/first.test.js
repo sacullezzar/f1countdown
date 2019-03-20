@@ -11,5 +11,6 @@ describe('<App />', function () {
         const wrapper = shallow(<App />)
         wrapper.instance().handleClick()
         expect(wrapper).toMatchSnapshot()
+        expect(wrapper.instance().handleClick()).toEqual(true)
     })
 })
