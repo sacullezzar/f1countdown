@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-import { tsConstructSignatureDeclaration } from '@babel/types';
 
 class Timer extends Component {
     constructor(props) {
