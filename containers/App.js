@@ -2,8 +2,8 @@ import React, { Component } from 'react'
 import Timer from '../components/timer'
 
 class App extends Component {
-    constructor() {
-        super()
+    constructor(props) {
+        super(props)
         this.state = {
             name: 'hello world',
             number: 1
@@ -23,7 +23,7 @@ class App extends Component {
         return (
             <div>
                 <h1>{this.state.name}</h1>
-                <input type="text" onKeyPress={this.handleChange}></input>
+                <input id='input' type="text" onKeyPress={this.handleChange}></input>
                 <Timer time={this.state.number}/>
             </div>
         )

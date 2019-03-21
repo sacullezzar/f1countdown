@@ -5,11 +5,11 @@ exports[`<App /> should match snapshot 1`] = `
   <h1>
     hello world
   </h1>
-  <button
-    onClick={[Function]}
-  >
-    1
-  </button>
+  <input
+    id="input"
+    onKeyPress={[Function]}
+    type="text"
+  />
   <Timer
     time={1}
   />
@@ -21,13 +21,13 @@ exports[`<App /> should match snapshot 2`] = `
   <h1>
     hello world
   </h1>
-  <button
-    onClick={[Function]}
-  >
-    2
-  </button>
+  <input
+    id="input"
+    onKeyPress={[Function]}
+    type="text"
+  />
   <Timer
-    time={2}
+    time={1}
   />
 </div>
 `;
