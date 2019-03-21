@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { get } from 'https';
+import Timer from '../components/timer'
 
 class App extends Component {
     constructor() {
@@ -22,6 +22,7 @@ class App extends Component {
             <div>
                 <h1>{this.state.name}</h1>
                 <button onClick={this.handleClick}>{this.state.number}</button>
+                <Timer time={5}/>
             </div>
         )
     }
