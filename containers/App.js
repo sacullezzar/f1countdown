@@ -9,19 +9,21 @@ class App extends Component {
             number: 1
         }
 
-        this.handleClick = this.handleClick.bind(this)
+        this.handleChange = this.handleChange.bind(this)
     }
 
-    handleClick() {
-        this.setState({ number: this.state.number += 1 })
-        return true
+    handleChange(event) {
+        console.log(event.key)
+        if (event.key === 'Enter') {
+            this.setState({ number: event.target.value })
+        }
     }
 
     render () {
         return (
             <div>
                 <h1>{this.state.name}</h1>
-                <button onClick={this.handleClick}>{this.state.number}</button>
+                <input type="text" onKeyPress={this.handleChange}></input>
                 <Timer time={this.state.number}/>
             </div>
         )
