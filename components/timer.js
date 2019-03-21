@@ -8,12 +8,21 @@ class Timer extends Component {
         this.formatTimer = this.formatTimer.bind(this)
         this.timer = this.timer.bind(this)
         this.state = {
-            time: null
+            time: null,
+            seconds: props.time
         }
     }
 
-    componentWillMount () {
-        this.timer(this.props.time)
+    componentDidMount() {
+        this.timer(this.state.seconds)
+    }
+
+    componentDidUpdate(prevProps) {
+        if (this.props.time !== prevProps.time) {
+            this.setState( { seconds: this.props.time })
+            clearInterval(this.interval)
+            this.timer(this.props.time)
+        }
     }
 
     formatTimer(initialSeconds) {

@@ -22,7 +22,7 @@ class App extends Component {
             <div>
                 <h1>{this.state.name}</h1>
                 <button onClick={this.handleClick}>{this.state.number}</button>
-                <Timer time={5}/>
+                <Timer time={this.state.number}/>
             </div>
         )
     }
