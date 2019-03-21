@@ -28,7 +28,7 @@ describe('<Timer />', function () {
             const expected = wrapper.instance().formatTimer(initialSeconds)
             expect(expected).toEqual(actual)
         })
-        it('returns null if initial seconds are negative', function() {
+        it('returns empty timer if initial seconds are negative', function() {
             const wrapper = shallow(<Timer />)
             const initialSeconds = -90000
             const actual = "Days: 0 - Hours: 0 - Minutes: 0 - Seconds: 0"
