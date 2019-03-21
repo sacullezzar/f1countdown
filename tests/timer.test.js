@@ -58,4 +58,15 @@ describe('<Timer />', function () {
             expect(wrapper).toMatchSnapshot()
         })
     })
+
+    describe('componentDidUpdate function', function() {
+        it('updates the component when set new props', function() {
+            const wrapper = shallow(<Timer time={3600}/>)
+            jest.advanceTimersByTime(5000)
+            expect(wrapper).toMatchSnapshot()
+            wrapper.setProps({ time: 1800 })
+            jest.advanceTimersByTime(5000)
+            expect(wrapper).toMatchSnapshot()
+        })
+    })
 })

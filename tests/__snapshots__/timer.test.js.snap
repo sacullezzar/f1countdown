@@ -1,5 +1,21 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`<Timer /> componentDidUpdate function updates the component when set new props 1`] = `
+<div>
+  <h1>
+    Days: 0 - Hours: 0 - Minutes: 59 - Seconds: 56
+  </h1>
+</div>
+`;
+
+exports[`<Timer /> componentDidUpdate function updates the component when set new props 2`] = `
+<div>
+  <h1>
+    Days: 0 - Hours: 0 - Minutes: 29 - Seconds: 56
+  </h1>
+</div>
+`;
+
 exports[`<Timer /> first test 1`] = `
 <div>
   <h1 />
