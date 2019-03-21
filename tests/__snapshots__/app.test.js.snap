@@ -10,6 +10,9 @@ exports[`<App /> should match snapshot 1`] = `
   >
     1
   </button>
+  <Timer
+    time={1}
+  />
 </div>
 `;
 
@@ -23,5 +26,8 @@ exports[`<App /> should match snapshot 2`] = `
   >
     2
   </button>
+  <Timer
+    time={2}
+  />
 </div>
 `;
