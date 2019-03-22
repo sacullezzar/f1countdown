@@ -19,7 +19,7 @@ describe('<App />', function () {
         expect(wrapper).toMatchSnapshot()
     })
 
-    it('mocks an event where the final key is NOT enter, should change timer time prop', function () {
+    it('mocks an event where the final key is NOT enter, should NOT change timer time prop', function () {
         const mockEvent = {
             key: 'a',
             target: {
