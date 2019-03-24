@@ -12,8 +12,8 @@ class RaceData extends React.Component {
     }
 
     selector() {
-        return this.props.raceData.MRData.RaceTable.Races.map( x =>
-            <option className="dropdown-item" value={x.date + 'T' + x.time}>{x.raceName}</option>
+        return this.props.raceData.MRData.RaceTable.Races.map( race =>
+            <option className="dropdown-item" value={race.date + 'T' + race.time}>{race.raceName}</option>
         )      
     }
         
