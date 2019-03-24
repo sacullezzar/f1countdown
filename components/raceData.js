@@ -13,13 +13,18 @@ class RaceData extends React.Component {
 
     selector() {
         return this.props.raceData.MRData.RaceTable.Races.map( x =>
-            <option value={x.date + 'T' + x.time}>{x.raceName}</option>
+            <option className="dropdown-item" value={x.date + 'T' + x.time}>{x.raceName}</option>
         )      
     }
         
     render() {
         return(
-            <select onChange={this.handleChange}>{this.selector()}</select>
+            <div className="input-group w-50 m-auto">
+                <div className="input-group-prepend">
+                    <label className="input-group-text" htmlFor="inputGroupSelect01">Races</label>
+                </div>
+                <select className="custom-select" onChange={this.handleChange}>{this.selector()}</select>
+            </div>
         )
     }
 }

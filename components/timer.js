@@ -57,11 +57,11 @@ class Timer extends Component {
 
     render () {
         return (
-            <div>
-                <h1>
+            <React.Fragment>
+                <h3 className="mx-auto my-2 w-50">
                     {this.state.time}
-                </h1>
-            </div>
+                </h3>
+            </React.Fragment>
         )
     }
 }

@@ -2,17 +2,17 @@ import React, { Component } from 'react'
 import Timer from '../components/timer'
 import RaceData from '../components/raceData'
 
+
+
 class App extends Component {
     constructor(props) {
         super(props)
         this.state = {
             isLoaded: false,
-            name: 'hello world',
             number: 0,
             raceData: null
         }
 
-        this.handleChange = this.handleChange.bind(this)
         this.handleTimeChange = this.handleTimeChange.bind(this)
     }
 
@@ -29,26 +29,29 @@ class App extends Component {
         this.setState({ number: date})
     }
 
-    handleChange(event) {
-        if (event.key === 'Enter') {
-            this.setState({ number: event.target.value })
-        }
-    }
-
     render () {
         const { name, number, raceData } = this.state
+        const spinnerStyle = {
+            position: 'fixed',
+            left: '50%',
+            top: '50%'
+        }
+
         if(!this.state.isLoaded) {
             return  (
-            <div>Loading...</div>
+                <div style={spinnerStyle}>
+                    <div className="spinner-border" role="status">
+                        <span className="sr-only">Loading...</span>
+                    </div>
+                </div>
             )
         } else {
             return (
-                <div>
-                    <h1>{name}</h1>
-                    <input id='input' type="text" onKeyPress={this.handleChange}></input>
+                <React.Fragment>
+                    <h1 style={{textAlign: "center"}}>F1 Countdown</h1>
                     <Timer time={number}/>
                     <RaceData raceData={raceData} handleTimeChange={this.handleTimeChange}/>
-                </div>
+                </React.Fragment>
             )
         }
     }
