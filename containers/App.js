@@ -8,7 +8,7 @@ class App extends Component {
     constructor(props) {
         super(props)
         this.state = {
-            isLoaded: false,
+            isLoading: true,
             number: 0,
             raceData: null
         }
@@ -19,7 +19,7 @@ class App extends Component {
     componentDidMount() {
         fetch('https://ergast.com/api/f1/current.json')
             .then(response => response.json())
-            .then(response => this.setState({ isLoaded: true, raceData: response }));
+            .then(response => this.setState({ isLoading: false, raceData: response }));
     }
 
     handleTimeChange(time) {
@@ -37,7 +37,7 @@ class App extends Component {
             top: '50%'
         }
 
-        if(!this.state.isLoaded) {
+        if(this.state.isLoading) {
             return  (
                 <div style={spinnerStyle}>
                     <div className="spinner-border" role="status">
