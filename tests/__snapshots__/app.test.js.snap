@@ -1,33 +1,46 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<App /> should match snapshot 1`] = `
+exports[`<App /> mocks an event where the final key is NOT enter, should change timer time prop 1`] = `
 <div>
   <h1>
     hello world
   </h1>
-  <button
-    onClick={[Function]}
-  >
-    1
-  </button>
+  <input
+    onKeyPress={[Function]}
+    type="text"
+  />
   <Timer
     time={1}
   />
 </div>
 `;
 
-exports[`<App /> should match snapshot 2`] = `
+exports[`<App /> mocks an event where the final key is enter, should change timer time prop 1`] = `
 <div>
   <h1>
     hello world
   </h1>
-  <button
-    onClick={[Function]}
-  >
-    2
-  </button>
+  <input
+    onKeyPress={[Function]}
+    type="text"
+  />
   <Timer
-    time={2}
+    time="10000"
+  />
+</div>
+`;
+
+exports[`<App /> should match snapshot 1`] = `
+<div>
+  <h1>
+    hello world
+  </h1>
+  <input
+    onKeyPress={[Function]}
+    type="text"
+  />
+  <Timer
+    time={1}
   />
 </div>
 `;
