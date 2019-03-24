@@ -8,6 +8,7 @@ class Timer extends Component {
         this.timer = this.timer.bind(this)
         this.state = {
             time: null,
+            isLoading: false,
             seconds: props.time
         }
     }
@@ -52,20 +53,44 @@ class Timer extends Component {
 
     timer(seconds) {
         const self = this
+        this.setState( { isLoading: true })
         this.interval = setInterval(function() {
             self.setState( { time: self.formatTimer(seconds) } )
+            self.setState( { isLoading: false })
             seconds -= 1
           }, 1000, self)
     }
 
     render () {
-        return (
-            <React.Fragment>
-                <h3 className="mx-auto my-2 w-50">
-                    {this.state.time}
-                </h3>
-            </React.Fragment>
-        )
+        if(this.state.isLoading) {
+            return  (
+                <div className="my-2" style={{ textAlign: 'center' }}>
+                    <div className="spinner-grow mx-1">
+                        <span className="sr-only">Loading...</span>
+                    </div>
+                    <div className="spinner-grow mx-1">
+                        <span className="sr-only">Loading...</span>
+                    </div>
+                    <div className="spinner-grow mx-1">
+                        <span className="sr-only">Loading...</span>
+                    </div>
+                    <div className="spinner-grow mx-1">
+                        <span className="sr-only">Loading...</span>
+                    </div>
+                    <div className="spinner-grow mx-1">
+                        <span className="sr-only">Loading...</span>
+                    </div>
+                </div>
+            )
+        } else {
+            return (
+                <React.Fragment>
+                    <h3 className="mx-auto my-2 w-50">
+                        {this.state.time}
+                    </h3>
+                </React.Fragment>
+            )
+        }     
     }
 }
 
