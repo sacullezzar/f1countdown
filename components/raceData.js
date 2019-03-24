@@ -3,36 +3,24 @@ import React from 'react'
 class RaceData extends React.Component {
     constructor(props) {
         super(props)
-        this.state = {
-            titles: [],
-            dates: [],
-            times: []
-        }
-        this.raceList = this.raceList.bind(this)
+        this.selector = this.selector.bind(this)
+        this.handleChange = this.handleChange.bind(this)
     }
 
-    componentDidUpdate(){
-        const { titles, dates, times } = this.state
-        const { raceData } = this.props
-        for(let i=0; i<raceData.MRData.RaceTable.Races.length; i++){
-            titles.push(raceData.MRData.RaceTable.Races[i].raceName)
-            dates.push(raceData.MRData.RaceTable.Races[i].date)
-            times.push(raceData.MRData.RaceTable.Races[i].time)
-        }
+    handleChange(event) {
+        this.props.handleTimeChange(event.target.value)
     }
 
-    raceList() {
-        let races = this.state.titles.map((item, index) => {
-            <li key={index}>{item}</li>
-        })
-        console.log(races)
-        return (
-            <ul>{races}</ul> || null
-        )
+    selector() {
+        return this.props.raceData.MRData.RaceTable.Races.map( x =>
+            <option value={x.date + 'T' + x.time}>{x.raceName}</option>
+        )      
     }
         
     render() {
-        return(this.raceList())
+        return(
+            <select onChange={this.handleChange}>{this.selector()}</select>
+        )
     }
 }
 
