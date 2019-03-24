@@ -27,14 +27,17 @@ class Timer extends Component {
     formatTimer(initialSeconds) {
         if (initialSeconds <= 0) {
             clearInterval(this.interval)
-            return "Days: 0 - Hours: 0 - Minutes: 0 - Seconds: 0"
+            return "Weeks: 0 - Days: 0 - Hours: 0 - Minutes: 0 - Seconds: 0"
         }
+        let weeks
         let days
         let hours
         let minutes
         let seconds
         let trackedSeconds = initialSeconds
 
+        weeks = Math.floor(trackedSeconds / (60 * 60 * 24 * 7))
+        trackedSeconds -= weeks * (60 * 60 * 24 * 7)
         days = Math.floor(trackedSeconds / (60 * 60 * 24))
         trackedSeconds -= days * (60 * 60 * 24)
         hours = Math.floor(trackedSeconds / (60 * 60))
@@ -43,7 +46,7 @@ class Timer extends Component {
         trackedSeconds -= minutes * 60
         seconds = trackedSeconds
 
-        let format = "Days: " + days + " - Hours: " + hours + " - Minutes: " + minutes + " - Seconds: " + seconds
+        let format = "Weeks: " + weeks + " - Days: " + days + " - Hours: " + hours + " - Minutes: " + minutes + " - Seconds: " + seconds
         return format
     }
 

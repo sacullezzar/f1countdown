@@ -30,7 +30,7 @@ class App extends Component {
     }
 
     render () {
-        const { name, number, raceData } = this.state
+        const { number, raceData } = this.state
         const spinnerStyle = {
             position: 'fixed',
             left: '50%',
