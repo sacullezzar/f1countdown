@@ -8,10 +8,27 @@ describe('<App />', function () {
         expect(wrapper).toMatchSnapshot()
     })
 
-    it('should match snapshot', function () {
-        const handleChangeSpy = sinon.spy(App.prototype, 'handleChange')
-        const wrapper = shallow(<App handleChange={handleChangeSpy}/>)
-        wrapper.simulate('change')
+    it('mocks an event where the final key is enter, should change timer time prop', function () {
+        const mockEvent = {
+            key: 'Enter',
+            target: {
+                value: '10000'
+            }
+        }
+        const wrapper = shallow(<App />)
+        wrapper.instance().handleChange(mockEvent)
+        expect(wrapper).toMatchSnapshot()
+    })
+
+    it('mocks an event where the final key is NOT enter, should NOT change timer time prop', function () {
+        const mockEvent = {
+            key: 'a',
+            target: {
+                value: '10000'
+            }
+        }
+        const wrapper = shallow(<App />)
+        wrapper.instance().handleChange(mockEvent)
         expect(wrapper).toMatchSnapshot()
     })
 })
