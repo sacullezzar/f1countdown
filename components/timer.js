@@ -59,6 +59,7 @@ class Timer extends Component {
             self.setState( { isLoading: false })
             seconds -= 1
           }, 1000, self)
+          console.log(this.state.time)
     }
 
     render () {
@@ -83,13 +84,23 @@ class Timer extends Component {
                 </div>
             )
         } else {
-            return (
+            if (this.state.time === "Weeks: 0 - Days: 0 - Hours: 0 - Minutes: 0 - Seconds: 0") {
+                return (
+                <React.Fragment>
+                    <h3 className="mx-auto my-2 w-50">
+                        Too Late
+                    </h3>
+                </React.Fragment>
+                )
+            } else {
+                return (
                 <React.Fragment>
                     <h3 className="mx-auto my-2 w-50">
                         {this.state.time}
                     </h3>
                 </React.Fragment>
-            )
+                )
+            }
         }     
     }
 }
