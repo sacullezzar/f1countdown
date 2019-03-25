@@ -1,31 +1,59 @@
 import React, { Component } from 'react'
 import Timer from '../components/timer'
+import RaceData from '../components/raceData'
+
+
 
 class App extends Component {
-    constructor() {
-        super()
+    constructor(props) {
+        super(props)
         this.state = {
-            name: 'hello world',
-            number: 1
+            isLoading: true,
+            number: 0,
+            raceData: null
         }
 
-        this.handleChange = this.handleChange.bind(this)
+        this.handleTimeChange = this.handleTimeChange.bind(this)
     }
 
-    handleChange(event) {
-        if (event.key === 'Enter') {
-            this.setState({ number: event.target.value })
-        }
+    componentDidMount() {
+        fetch('https://ergast.com/api/f1/current.json')
+            .then(response => response.json())
+            .then(response => this.setState({ isLoading: false, raceData: response }));
+    }
+
+    handleTimeChange(time) {
+        const t1 = new Date
+        const t2 = new Date(time)
+        const date = Math.round((t2 - t1)/1000)
+        this.setState({ number: date})
     }
 
     render () {
-        return (
-            <div>
-                <h1>{this.state.name}</h1>
-                <input type="text" onKeyPress={this.handleChange}></input>
-                <Timer time={this.state.number}/>
-            </div>
-        )
+        const { number, raceData } = this.state
+        const spinnerStyle = {
+            position: 'fixed',
+            left: '50%',
+            top: '50%'
+        }
+
+        if(this.state.isLoading) {
+            return  (
+                <div style={spinnerStyle}>
+                    <div className="spinner-border" role="status">
+                        <span className="sr-only">Loading...</span>
+                    </div>
+                </div>
+            )
+        } else {
+            return (
+                <React.Fragment>
+                    <h1 style={{textAlign: "center"}}>F1 Countdown</h1>
+                    <Timer time={number}/>
+                    <RaceData raceData={raceData} handleTimeChange={this.handleTimeChange}/>
+                </React.Fragment>
+            )
+        }
     }
 }
 

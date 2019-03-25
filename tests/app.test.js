@@ -1,5 +1,6 @@
 import React from 'react'
 import App from '../containers/App.js'
+import sinon from 'sinon'
 
 describe('<App />', function () {
     it('should match snapshot', function () {

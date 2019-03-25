@@ -8,6 +8,7 @@ class Timer extends Component {
         this.timer = this.timer.bind(this)
         this.state = {
             time: null,
+            isLoading: false,
             seconds: props.time
         }
     }
@@ -27,14 +28,17 @@ class Timer extends Component {
     formatTimer(initialSeconds) {
         if (initialSeconds <= 0) {
             clearInterval(this.interval)
-            return "Days: 0 - Hours: 0 - Minutes: 0 - Seconds: 0"
+            return "Weeks: 0 - Days: 0 - Hours: 0 - Minutes: 0 - Seconds: 0"
         }
+        let weeks
         let days
         let hours
         let minutes
         let seconds
         let trackedSeconds = initialSeconds
 
+        weeks = Math.floor(trackedSeconds / (60 * 60 * 24 * 7))
+        trackedSeconds -= weeks * (60 * 60 * 24 * 7)
         days = Math.floor(trackedSeconds / (60 * 60 * 24))
         trackedSeconds -= days * (60 * 60 * 24)
         hours = Math.floor(trackedSeconds / (60 * 60))
@@ -43,26 +47,50 @@ class Timer extends Component {
         trackedSeconds -= minutes * 60
         seconds = trackedSeconds
 
-        let format = "Days: " + days + " - Hours: " + hours + " - Minutes: " + minutes + " - Seconds: " + seconds
+        let format = "Weeks: " + weeks + " - Days: " + days + " - Hours: " + hours + " - Minutes: " + minutes + " - Seconds: " + seconds
         return format
     }
 
     timer(seconds) {
         const self = this
+        this.setState( { isLoading: true })
         this.interval = setInterval(function() {
             self.setState( { time: self.formatTimer(seconds) } )
+            self.setState( { isLoading: false })
             seconds -= 1
           }, 1000, self)
     }
 
     render () {
-        return (
-            <div>
-                <h1>
-                    {this.state.time}
-                </h1>
-            </div>
-        )
+        if(this.state.isLoading) {
+            return  (
+                <div className="my-2" style={{ textAlign: 'center' }}>
+                    <div className="spinner-grow mx-1">
+                        <span className="sr-only">Loading...</span>
+                    </div>
+                    <div className="spinner-grow mx-1">
+                        <span className="sr-only">Loading...</span>
+                    </div>
+                    <div className="spinner-grow mx-1">
+                        <span className="sr-only">Loading...</span>
+                    </div>
+                    <div className="spinner-grow mx-1">
+                        <span className="sr-only">Loading...</span>
+                    </div>
+                    <div className="spinner-grow mx-1">
+                        <span className="sr-only">Loading...</span>
+                    </div>
+                </div>
+            )
+        } else {
+            return (
+                <React.Fragment>
+                    <h3 className="mx-auto my-2 w-50">
+                        {this.state.time}
+                    </h3>
+                </React.Fragment>
+            )
+        }     
     }
 }
 
