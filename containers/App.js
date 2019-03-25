@@ -2,8 +2,6 @@ import React, { Component } from 'react'
 import Timer from '../components/timer'
 import RaceData from '../components/raceData'
 
-
-
 class App extends Component {
     constructor(props) {
         super(props)
@@ -36,24 +34,13 @@ class App extends Component {
             left: '50%',
             top: '50%'
         }
-
-        if(this.state.isLoading) {
-            return  (
-                <div style={spinnerStyle}>
-                    <div className="spinner-border" role="status">
-                        <span className="sr-only">Loading...</span>
-                    </div>
-                </div>
-            )
-        } else {
-            return (
-                <React.Fragment>
-                    <h1 style={{textAlign: "center"}}>F1 Countdown</h1>
-                    <Timer time={number}/>
-                    <RaceData raceData={raceData} handleTimeChange={this.handleTimeChange}/>
-                </React.Fragment>
-            )
-        }
+        return (
+            <React.Fragment>
+                <h1 style={{textAlign: "center"}}>F1 Countdown</h1>
+                <Timer time={number}/>
+                {!this.state.isLoading && <RaceData raceData={raceData} handleTimeChange={this.handleTimeChange}/>}
+            </React.Fragment>
+        )
     }
 }
 
