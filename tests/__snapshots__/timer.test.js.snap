@@ -1,39 +1,129 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`<Timer /> componentDidUpdate function updates the component when set new props 1`] = `
-<div>
-  <h1>
-    Days: 0 - Hours: 0 - Minutes: 59 - Seconds: 56
-  </h1>
-</div>
+<Fragment>
+  <h3
+    className="mx-auto my-2 w-50"
+    style={
+      Object {
+        "textAlign": "center",
+      }
+    }
+  >
+    Weeks: 0 - Days: 0 - Hours: 0 - Minutes: 59 - Seconds: 56
+  </h3>
+</Fragment>
 `;
 
 exports[`<Timer /> componentDidUpdate function updates the component when set new props 2`] = `
-<div>
-  <h1>
-    Days: 0 - Hours: 0 - Minutes: 29 - Seconds: 56
-  </h1>
-</div>
+<Fragment>
+  <h3
+    className="mx-auto my-2 w-50"
+    style={
+      Object {
+        "textAlign": "center",
+      }
+    }
+  >
+    Weeks: 0 - Days: 0 - Hours: 0 - Minutes: 29 - Seconds: 56
+  </h3>
+</Fragment>
 `;
 
 exports[`<Timer /> first test 1`] = `
-<div>
-  <h1 />
+<div
+  className="my-2"
+  style={
+    Object {
+      "textAlign": "center",
+    }
+  }
+>
+  <div
+    className="spinner-grow text-danger mx-1"
+    key="0"
+  >
+    <span
+      className="sr-only"
+    >
+      Loading...
+    </span>
+  </div>
+  <div
+    className="spinner-grow text-danger mx-1"
+    key="1"
+  >
+    <span
+      className="sr-only"
+    >
+      Loading...
+    </span>
+  </div>
+  <div
+    className="spinner-grow text-danger mx-1"
+    key="2"
+  >
+    <span
+      className="sr-only"
+    >
+      Loading...
+    </span>
+  </div>
+  <div
+    className="spinner-grow text-danger mx-1"
+    key="3"
+  >
+    <span
+      className="sr-only"
+    >
+      Loading...
+    </span>
+  </div>
+  <div
+    className="spinner-grow text-danger mx-1"
+    key="4"
+  >
+    <span
+      className="sr-only"
+    >
+      Loading...
+    </span>
+  </div>
 </div>
 `;
 
 exports[`<Timer /> timer function should match snapshot after Timer finishes 1`] = `
-<div>
-  <h1>
-    Days: 0 - Hours: 0 - Minutes: 0 - Seconds: 0
-  </h1>
-</div>
+<Fragment>
+  <h3
+    className="mx-auto my-2 w-50"
+    style={
+      Object {
+        "textAlign": "center",
+      }
+    }
+  >
+    Past Race 
+    <br />
+    <a
+      href=""
+    >
+      View results
+    </a>
+  </h3>
+</Fragment>
 `;
 
 exports[`<Timer /> timer function should match snapshot after Timer set to a day and wait 10 seconds 1`] = `
-<div>
-  <h1>
-    Days: 0 - Hours: 23 - Minutes: 59 - Seconds: 51
-  </h1>
-</div>
+<Fragment>
+  <h3
+    className="mx-auto my-2 w-50"
+    style={
+      Object {
+        "textAlign": "center",
+      }
+    }
+  >
+    Weeks: 0 - Days: 0 - Hours: 23 - Minutes: 59 - Seconds: 51
+  </h3>
+</Fragment>
 `;

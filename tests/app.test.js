@@ -16,7 +16,7 @@ describe('<App />', function () {
             }
         }
         const wrapper = shallow(<App />)
-        wrapper.instance().handleChange(mockEvent)
+        wrapper.simulate('change', mockEvent)
         expect(wrapper).toMatchSnapshot()
     })
 
@@ -28,7 +28,7 @@ describe('<App />', function () {
             }
         }
         const wrapper = shallow(<App />)
-        wrapper.instance().handleChange(mockEvent)
+        wrapper.simulate('change', mockEvent)
         expect(wrapper).toMatchSnapshot()
     })
 })

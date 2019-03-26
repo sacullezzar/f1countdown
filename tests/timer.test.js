@@ -17,21 +17,21 @@ describe('<Timer />', function () {
         it('formats 1 day of time', function() {
             const wrapper = shallow(<Timer />)
             const initialSeconds = 86400
-            const actual = "Days: 1 - Hours: 0 - Minutes: 0 - Seconds: 0"
+            const actual = "Weeks: 0 - Days: 1 - Hours: 0 - Minutes: 0 - Seconds: 0"
             const expected = wrapper.instance().formatTimer(initialSeconds)
             expect(expected).toEqual(actual)
         })
         it('formats 1 day and 1 hour of time', function() {
             const wrapper = shallow(<Timer />)
             const initialSeconds = 90000
-            const actual = "Days: 1 - Hours: 1 - Minutes: 0 - Seconds: 0"
+            const actual = "Weeks: 0 - Days: 1 - Hours: 1 - Minutes: 0 - Seconds: 0"
             const expected = wrapper.instance().formatTimer(initialSeconds)
             expect(expected).toEqual(actual)
         })
         it('returns empty timer if initial seconds are negative', function() {
             const wrapper = shallow(<Timer />)
             const initialSeconds = -90000
-            const actual = "Days: 0 - Hours: 0 - Minutes: 0 - Seconds: 0"
+            const actual = "Weeks: 0 - Days: 0 - Hours: 0 - Minutes: 0 - Seconds: 0"
             const expected = wrapper.instance().formatTimer(initialSeconds)
             expect(expected).toEqual(actual)
         })
