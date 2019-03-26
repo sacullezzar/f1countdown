@@ -17,7 +17,10 @@ class App extends Component {
     componentDidMount() {
         fetch('https://ergast.com/api/f1/current.json')
             .then(response => response.json())
-            .then(response => this.setState({ isLoading: false, raceData: response }));
+            .then(response => this.setState({ isLoading: false, raceData: response }))
+            .catch(() => {
+                console.error(error)
+            })
     }
 
     handleTimeChange(time) {

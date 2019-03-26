@@ -61,25 +61,22 @@ class Timer extends Component {
           }, 1000, self)
     }
 
+
+
     render () {
+        let lights = []
+        for(let i=0; i<5;i++){
+            lights.push(
+            <div className="spinner-grow text-danger mx-1" key={i}>
+                <span className="sr-only">Loading...</span>
+            </div>)
+        }
         if(this.state.isLoading) {
             return  (
                 <div className="my-2" style={{ textAlign: 'center' }}>
-                    <div className="spinner-grow mx-1">
-                        <span className="sr-only">Loading...</span>
-                    </div>
-                    <div className="spinner-grow mx-1">
-                        <span className="sr-only">Loading...</span>
-                    </div>
-                    <div className="spinner-grow mx-1">
-                        <span className="sr-only">Loading...</span>
-                    </div>
-                    <div className="spinner-grow mx-1">
-                        <span className="sr-only">Loading...</span>
-                    </div>
-                    <div className="spinner-grow mx-1">
-                        <span className="sr-only">Loading...</span>
-                    </div>
+                        {lights.map(function(light){
+                            return light
+                        })}
                 </div>
             )
         } else {
@@ -87,7 +84,7 @@ class Timer extends Component {
                 return (
                 <React.Fragment>
                     <h3 className="mx-auto my-2 w-50" style={{ textAlign: 'center' }}>
-                        Too Late
+                        Past Race <br></br><a href={""}>View results</a>
                     </h3>
                 </React.Fragment>
                 )

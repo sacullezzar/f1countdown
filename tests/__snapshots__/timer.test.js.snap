@@ -40,7 +40,8 @@ exports[`<Timer /> first test 1`] = `
   }
 >
   <div
-    className="spinner-grow mx-1"
+    className="spinner-grow text-danger mx-1"
+    key="0"
   >
     <span
       className="sr-only"
@@ -49,7 +50,8 @@ exports[`<Timer /> first test 1`] = `
     </span>
   </div>
   <div
-    className="spinner-grow mx-1"
+    className="spinner-grow text-danger mx-1"
+    key="1"
   >
     <span
       className="sr-only"
@@ -58,7 +60,8 @@ exports[`<Timer /> first test 1`] = `
     </span>
   </div>
   <div
-    className="spinner-grow mx-1"
+    className="spinner-grow text-danger mx-1"
+    key="2"
   >
     <span
       className="sr-only"
@@ -67,7 +70,8 @@ exports[`<Timer /> first test 1`] = `
     </span>
   </div>
   <div
-    className="spinner-grow mx-1"
+    className="spinner-grow text-danger mx-1"
+    key="3"
   >
     <span
       className="sr-only"
@@ -76,7 +80,8 @@ exports[`<Timer /> first test 1`] = `
     </span>
   </div>
   <div
-    className="spinner-grow mx-1"
+    className="spinner-grow text-danger mx-1"
+    key="4"
   >
     <span
       className="sr-only"
@@ -97,7 +102,13 @@ exports[`<Timer /> timer function should match snapshot after Timer finishes 1`]
       }
     }
   >
-    Too Late
+    Past Race 
+    <br />
+    <a
+      href=""
+    >
+      View results
+    </a>
   </h3>
 </Fragment>
 `;
