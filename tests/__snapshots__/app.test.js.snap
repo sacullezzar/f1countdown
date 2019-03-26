@@ -1,46 +1,52 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<App /> mocks an event where the final key is NOT enter, should change timer time prop 1`] = `
-<div>
-  <h1>
-    hello world
+exports[`<App /> mocks an event where the final key is NOT enter, should NOT change timer time prop 1`] = `
+<Fragment>
+  <h1
+    style={
+      Object {
+        "textAlign": "center",
+      }
+    }
+  >
+    F1 Countdown
   </h1>
-  <input
-    onKeyPress={[Function]}
-    type="text"
-  />
   <Timer
-    time={1}
+    time={0}
   />
-</div>
+</Fragment>
 `;
 
 exports[`<App /> mocks an event where the final key is enter, should change timer time prop 1`] = `
-<div>
-  <h1>
-    hello world
+<Fragment>
+  <h1
+    style={
+      Object {
+        "textAlign": "center",
+      }
+    }
+  >
+    F1 Countdown
   </h1>
-  <input
-    onKeyPress={[Function]}
-    type="text"
-  />
   <Timer
-    time="10000"
+    time={0}
   />
-</div>
+</Fragment>
 `;
 
 exports[`<App /> should match snapshot 1`] = `
-<div>
-  <h1>
-    hello world
+<Fragment>
+  <h1
+    style={
+      Object {
+        "textAlign": "center",
+      }
+    }
+  >
+    F1 Countdown
   </h1>
-  <input
-    onKeyPress={[Function]}
-    type="text"
-  />
   <Timer
-    time={1}
+    time={0}
   />
-</div>
+</Fragment>
 `;
