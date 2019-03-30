@@ -1,40 +1,459 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<App /> mocks an event where the final key is NOT enter, should NOT change timer time prop 1`] = `
-<Fragment>
-  <h1
-    style={
-      Object {
-        "textAlign": "center",
-      }
-    }
-  >
-    F1 Countdown
-  </h1>
-  <Timer
-    time={0}
-  />
-</Fragment>
-`;
-
-exports[`<App /> mocks an event where the final key is enter, should change timer time prop 1`] = `
-<Fragment>
-  <h1
-    style={
-      Object {
-        "textAlign": "center",
-      }
-    }
-  >
-    F1 Countdown
-  </h1>
-  <Timer
-    time={0}
-  />
-</Fragment>
-`;
-
 exports[`<App /> should match snapshot 1`] = `
+<Fragment>
+  <h1
+    style={
+      Object {
+        "textAlign": "center",
+      }
+    }
+  >
+    F1 Countdown
+  </h1>
+  <Timer
+    time={0}
+  />
+</Fragment>
+`;
+
+exports[`<App /> tests component did mount with mocked data 1`] = `
+<Fragment>
+  <h1
+    style={
+      Object {
+        "textAlign": "center",
+      }
+    }
+  >
+    F1 Countdown
+  </h1>
+  <Timer
+    time={0}
+  />
+  <RaceData
+    handleTimeChange={[Function]}
+    raceData={
+      Object {
+        "MRData": Object {
+          "RaceTable": Object {
+            "Races": Array [
+              Object {
+                "Circuit": Object {
+                  "Location": Object {
+                    "country": "Australia",
+                    "lat": "-37.8497",
+                    "locality": "Melbourne",
+                    "long": "144.968",
+                  },
+                  "circuitId": "albert_park",
+                  "circuitName": "Albert Park Grand Prix Circuit",
+                  "url": "http://en.wikipedia.org/wiki/Melbourne_Grand_Prix_Circuit",
+                },
+                "date": "2019-03-17",
+                "raceName": "Australian Grand Prix",
+                "round": "1",
+                "season": "2019",
+                "time": "05:10:00Z",
+                "url": "https://en.wikipedia.org/wiki/2019_Australian_Grand_Prix",
+              },
+              Object {
+                "Circuit": Object {
+                  "Location": Object {
+                    "country": "Bahrain",
+                    "lat": "26.0325",
+                    "locality": "Sakhir",
+                    "long": "50.5106",
+                  },
+                  "circuitId": "bahrain",
+                  "circuitName": "Bahrain International Circuit",
+                  "url": "http://en.wikipedia.org/wiki/Bahrain_International_Circuit",
+                },
+                "date": "2019-03-31",
+                "raceName": "Bahrain Grand Prix",
+                "round": "2",
+                "season": "2019",
+                "time": "15:10:00Z",
+                "url": "https://en.wikipedia.org/wiki/2019_Bahrain_Grand_Prix",
+              },
+              Object {
+                "Circuit": Object {
+                  "Location": Object {
+                    "country": "China",
+                    "lat": "31.3389",
+                    "locality": "Shanghai",
+                    "long": "121.22",
+                  },
+                  "circuitId": "shanghai",
+                  "circuitName": "Shanghai International Circuit",
+                  "url": "http://en.wikipedia.org/wiki/Shanghai_International_Circuit",
+                },
+                "date": "2019-04-14",
+                "raceName": "Chinese Grand Prix",
+                "round": "3",
+                "season": "2019",
+                "time": "06:10:00Z",
+                "url": "https://en.wikipedia.org/wiki/2019_Chinese_Grand_Prix",
+              },
+              Object {
+                "Circuit": Object {
+                  "Location": Object {
+                    "country": "Azerbaijan",
+                    "lat": "40.3725",
+                    "locality": "Baku",
+                    "long": "49.8533",
+                  },
+                  "circuitId": "BAK",
+                  "circuitName": "Baku City Circuit",
+                  "url": "http://en.wikipedia.org/wiki/Baku_City_Circuit",
+                },
+                "date": "2019-04-28",
+                "raceName": "Azerbaijan Grand Prix",
+                "round": "4",
+                "season": "2019",
+                "time": "12:10:00Z",
+                "url": "https://en.wikipedia.org/wiki/2019_Azerbaijan_Grand_Prix",
+              },
+              Object {
+                "Circuit": Object {
+                  "Location": Object {
+                    "country": "Spain",
+                    "lat": "41.57",
+                    "locality": "Montmeló",
+                    "long": "2.26111",
+                  },
+                  "circuitId": "catalunya",
+                  "circuitName": "Circuit de Barcelona-Catalunya",
+                  "url": "http://en.wikipedia.org/wiki/Circuit_de_Barcelona-Catalunya",
+                },
+                "date": "2019-05-12",
+                "raceName": "Spanish Grand Prix",
+                "round": "5",
+                "season": "2019",
+                "time": "13:10:00Z",
+                "url": "https://en.wikipedia.org/wiki/2019_Spanish_Grand_Prix",
+              },
+              Object {
+                "Circuit": Object {
+                  "Location": Object {
+                    "country": "Monaco",
+                    "lat": "43.7347",
+                    "locality": "Monte-Carlo",
+                    "long": "7.42056",
+                  },
+                  "circuitId": "monaco",
+                  "circuitName": "Circuit de Monaco",
+                  "url": "http://en.wikipedia.org/wiki/Circuit_de_Monaco",
+                },
+                "date": "2019-05-26",
+                "raceName": "Monaco Grand Prix",
+                "round": "6",
+                "season": "2019",
+                "time": "13:10:00Z",
+                "url": "https://en.wikipedia.org/wiki/2019_Monaco_Grand_Prix",
+              },
+              Object {
+                "Circuit": Object {
+                  "Location": Object {
+                    "country": "Canada",
+                    "lat": "45.5",
+                    "locality": "Montreal",
+                    "long": "-73.5228",
+                  },
+                  "circuitId": "villeneuve",
+                  "circuitName": "Circuit Gilles Villeneuve",
+                  "url": "http://en.wikipedia.org/wiki/Circuit_Gilles_Villeneuve",
+                },
+                "date": "2019-06-09",
+                "raceName": "Canadian Grand Prix",
+                "round": "7",
+                "season": "2019",
+                "time": "18:10:00Z",
+                "url": "https://en.wikipedia.org/wiki/2019_Canadian_Grand_Prix",
+              },
+              Object {
+                "Circuit": Object {
+                  "Location": Object {
+                    "country": "France",
+                    "lat": "43.2506",
+                    "locality": "Le Castellet",
+                    "long": "5.79167",
+                  },
+                  "circuitId": "ricard",
+                  "circuitName": "Circuit Paul Ricard",
+                  "url": "http://en.wikipedia.org/wiki/Paul_Ricard_Circuit",
+                },
+                "date": "2019-06-23",
+                "raceName": "French Grand Prix",
+                "round": "8",
+                "season": "2019",
+                "time": "13:10:00Z",
+                "url": "https://en.wikipedia.org/wiki/2019_French_Grand_Prix",
+              },
+              Object {
+                "Circuit": Object {
+                  "Location": Object {
+                    "country": "Austria",
+                    "lat": "47.2197",
+                    "locality": "Spielburg",
+                    "long": "14.7647",
+                  },
+                  "circuitId": "red_bull_ring",
+                  "circuitName": "Red Bull Ring",
+                  "url": "http://en.wikipedia.org/wiki/Red_Bull_Ring",
+                },
+                "date": "2019-06-30",
+                "raceName": "Austrian Grand Prix",
+                "round": "9",
+                "season": "2019",
+                "time": "13:10:00Z",
+                "url": "https://en.wikipedia.org/wiki/2019_Austrian_Grand_Prix",
+              },
+              Object {
+                "Circuit": Object {
+                  "Location": Object {
+                    "country": "UK",
+                    "lat": "52.0786",
+                    "locality": "Silverstone",
+                    "long": "-1.01694",
+                  },
+                  "circuitId": "silverstone",
+                  "circuitName": "Silverstone Circuit",
+                  "url": "http://en.wikipedia.org/wiki/Silverstone_Circuit",
+                },
+                "date": "2019-07-14",
+                "raceName": "British Grand Prix",
+                "round": "10",
+                "season": "2019",
+                "time": "13:10:00Z",
+                "url": "https://en.wikipedia.org/wiki/2019_British_Grand_Prix",
+              },
+              Object {
+                "Circuit": Object {
+                  "Location": Object {
+                    "country": "Germany",
+                    "lat": "49.3278",
+                    "locality": "Hockenheim",
+                    "long": "8.56583",
+                  },
+                  "circuitId": "hockenheimring",
+                  "circuitName": "Hockenheimring",
+                  "url": "http://en.wikipedia.org/wiki/Hockenheimring",
+                },
+                "date": "2019-07-28",
+                "raceName": "German Grand Prix",
+                "round": "11",
+                "season": "2019",
+                "time": "13:10:00Z",
+                "url": "https://en.wikipedia.org/wiki/2019_German_Grand_Prix",
+              },
+              Object {
+                "Circuit": Object {
+                  "Location": Object {
+                    "country": "Hungary",
+                    "lat": "47.5789",
+                    "locality": "Budapest",
+                    "long": "19.2486",
+                  },
+                  "circuitId": "hungaroring",
+                  "circuitName": "Hungaroring",
+                  "url": "http://en.wikipedia.org/wiki/Hungaroring",
+                },
+                "date": "2019-08-04",
+                "raceName": "Hungarian Grand Prix",
+                "round": "12",
+                "season": "2019",
+                "time": "13:10:00Z",
+                "url": "https://en.wikipedia.org/wiki/2019_Hungarian_Grand_Prix",
+              },
+              Object {
+                "Circuit": Object {
+                  "Location": Object {
+                    "country": "Belgium",
+                    "lat": "50.4372",
+                    "locality": "Spa",
+                    "long": "5.97139",
+                  },
+                  "circuitId": "spa",
+                  "circuitName": "Circuit de Spa-Francorchamps",
+                  "url": "http://en.wikipedia.org/wiki/Circuit_de_Spa-Francorchamps",
+                },
+                "date": "2019-09-01",
+                "raceName": "Belgian Grand Prix",
+                "round": "13",
+                "season": "2019",
+                "time": "13:10:00Z",
+                "url": "https://en.wikipedia.org/wiki/2019_Belgian_Grand_Prix",
+              },
+              Object {
+                "Circuit": Object {
+                  "Location": Object {
+                    "country": "Italy",
+                    "lat": "45.6156",
+                    "locality": "Monza",
+                    "long": "9.28111",
+                  },
+                  "circuitId": "monza",
+                  "circuitName": "Autodromo Nazionale di Monza",
+                  "url": "http://en.wikipedia.org/wiki/Autodromo_Nazionale_Monza",
+                },
+                "date": "2019-09-08",
+                "raceName": "Italian Grand Prix",
+                "round": "14",
+                "season": "2019",
+                "time": "13:10:00Z",
+                "url": "https://en.wikipedia.org/wiki/2019_Italian_Grand_Prix",
+              },
+              Object {
+                "Circuit": Object {
+                  "Location": Object {
+                    "country": "Singapore",
+                    "lat": "1.2914",
+                    "locality": "Marina Bay",
+                    "long": "103.864",
+                  },
+                  "circuitId": "marina_bay",
+                  "circuitName": "Marina Bay Street Circuit",
+                  "url": "http://en.wikipedia.org/wiki/Marina_Bay_Street_Circuit",
+                },
+                "date": "2019-09-22",
+                "raceName": "Singapore Grand Prix",
+                "round": "15",
+                "season": "2019",
+                "time": "12:10:00Z",
+                "url": "https://en.wikipedia.org/wiki/2019_Singapore_Grand_Prix",
+              },
+              Object {
+                "Circuit": Object {
+                  "Location": Object {
+                    "country": "Russia",
+                    "lat": "43.4057",
+                    "locality": "Sochi",
+                    "long": "39.9578",
+                  },
+                  "circuitId": "sochi",
+                  "circuitName": "Sochi Autodrom",
+                  "url": "http://en.wikipedia.org/wiki/Sochi_Autodrom",
+                },
+                "date": "2019-09-29",
+                "raceName": "Russian Grand Prix",
+                "round": "16",
+                "season": "2019",
+                "time": "11:10:00Z",
+                "url": "https://en.wikipedia.org/wiki/2019_Russian_Grand_Prix",
+              },
+              Object {
+                "Circuit": Object {
+                  "Location": Object {
+                    "country": "Japan",
+                    "lat": "34.8431",
+                    "locality": "Suzuka",
+                    "long": "136.541",
+                  },
+                  "circuitId": "suzuka",
+                  "circuitName": "Suzuka Circuit",
+                  "url": "http://en.wikipedia.org/wiki/Suzuka_Circuit",
+                },
+                "date": "2019-10-13",
+                "raceName": "Japanese Grand Prix",
+                "round": "17",
+                "season": "2019",
+                "time": "05:10:00Z",
+                "url": "https://en.wikipedia.org/wiki/2019_Japanese_Grand_Prix",
+              },
+              Object {
+                "Circuit": Object {
+                  "Location": Object {
+                    "country": "Mexico",
+                    "lat": "19.4042",
+                    "locality": "Mexico City",
+                    "long": "-99.0907",
+                  },
+                  "circuitId": "rodriguez",
+                  "circuitName": "Autódromo Hermanos Rodríguez",
+                  "url": "http://en.wikipedia.org/wiki/Aut%C3%B3dromo_Hermanos_Rodr%C3%ADguez",
+                },
+                "date": "2019-10-27",
+                "raceName": "Mexican Grand Prix",
+                "round": "18",
+                "season": "2019",
+                "time": "19:10:00Z",
+                "url": "https://en.wikipedia.org/wiki/2019_Mexican_Grand_Prix",
+              },
+              Object {
+                "Circuit": Object {
+                  "Location": Object {
+                    "country": "USA",
+                    "lat": "30.1328",
+                    "locality": "Austin",
+                    "long": "-97.6411",
+                  },
+                  "circuitId": "americas",
+                  "circuitName": "Circuit of the Americas",
+                  "url": "http://en.wikipedia.org/wiki/Circuit_of_the_Americas",
+                },
+                "date": "2019-11-03",
+                "raceName": "United States Grand Prix",
+                "round": "19",
+                "season": "2019",
+                "time": "19:10:00Z",
+                "url": "https://en.wikipedia.org/wiki/2019_United_States_Grand_Prix",
+              },
+              Object {
+                "Circuit": Object {
+                  "Location": Object {
+                    "country": "Brazil",
+                    "lat": "-23.7036",
+                    "locality": "São Paulo",
+                    "long": "-46.6997",
+                  },
+                  "circuitId": "interlagos",
+                  "circuitName": "Autódromo José Carlos Pace",
+                  "url": "http://en.wikipedia.org/wiki/Aut%C3%B3dromo_Jos%C3%A9_Carlos_Pace",
+                },
+                "date": "2019-11-17",
+                "raceName": "Brazilian Grand Prix",
+                "round": "20",
+                "season": "2019",
+                "time": "17:10:00Z",
+                "url": "https://en.wikipedia.org/wiki/2019_Brazilian_Grand_Prix",
+              },
+              Object {
+                "Circuit": Object {
+                  "Location": Object {
+                    "country": "UAE",
+                    "lat": "24.4672",
+                    "locality": "Abu Dhabi",
+                    "long": "54.6031",
+                  },
+                  "circuitId": "yas_marina",
+                  "circuitName": "Yas Marina Circuit",
+                  "url": "http://en.wikipedia.org/wiki/Yas_Marina_Circuit",
+                },
+                "date": "2019-12-01",
+                "raceName": "Abu Dhabi Grand Prix",
+                "round": "21",
+                "season": "2019",
+                "time": "13:10:00Z",
+                "url": "https://en.wikipedia.org/wiki/2019_Abu_Dhabi_Grand_Prix",
+              },
+            ],
+            "season": "2019",
+          },
+          "limit": "30",
+          "offset": "0",
+          "series": "f1",
+          "total": "21",
+          "url": "http://ergast.com/api/f1/current.json",
+          "xmlns": "http://ergast.com/mrd/1.4",
+        },
+      }
+    }
+  />
+</Fragment>
+`;
+
+exports[`<App /> tests method handleTimeChange 1`] = `
 <Fragment>
   <h1
     style={

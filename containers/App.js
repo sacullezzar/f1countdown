@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import Timer from '../components/timer'
 import RaceData from '../components/raceData'
+import 'babel-polyfill'
 
 class App extends Component {
     constructor(props) {
@@ -14,13 +15,10 @@ class App extends Component {
         this.handleTimeChange = this.handleTimeChange.bind(this)
     }
 
-    componentDidMount() {
-        fetch('https://ergast.com/api/f1/current.json')
-            .then(response => response.json())
-            .then(response => this.setState({ isLoading: false, raceData: response }))
-            .catch(() => {
-                console.error(error)
-            })
+    async componentDidMount() {
+        const response = await fetch('https://ergast.com/api/f1/current.json')
+        const responseJson = await response.json()
+        this.setState({ isLoading: false, raceData: responseJson })
     }
 
     handleTimeChange(time) {
@@ -32,11 +30,6 @@ class App extends Component {
 
     render () {
         const { number, raceData } = this.state
-        const spinnerStyle = {
-            position: 'fixed',
-            left: '50%',
-            top: '50%'
-        }
         return (
             <React.Fragment>
                 <h1 style={{textAlign: "center"}}>F1 Countdown</h1>
