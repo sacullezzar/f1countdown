@@ -1,5 +1,6 @@
 import React from 'react'
 import App from '../containers/App.js'
+import testData from './testData/raceData'
 import sinon from 'sinon'
 
 describe('<App />', function () {
@@ -8,27 +9,27 @@ describe('<App />', function () {
         expect(wrapper).toMatchSnapshot()
     })
 
-    it('mocks an event where the final key is enter, should change timer time prop', function () {
-        const mockEvent = {
-            key: 'Enter',
-            target: {
-                value: '10000'
-            }
-        }
+    it('tests component did mount with mocked data', async (done) => {
         const wrapper = shallow(<App />)
-        wrapper.simulate('change', mockEvent)
+        const mockSuccessResponse = testData;
+        const mockJsonPromise = Promise.resolve(mockSuccessResponse);
+        const mockFetchPromise = Promise.resolve({
+            json: () => mockJsonPromise,
+        });
+        jest.spyOn(global, 'fetch').mockImplementation(() => mockFetchPromise);
+        await wrapper.instance().componentDidMount()
+        expect(wrapper.state()).toEqual({isLoading: false, number: 0, raceData: testData})
+        wrapper.update()
         expect(wrapper).toMatchSnapshot()
+        global.fetch.mockClear()
+        done()
     })
 
-    it('mocks an event where the final key is NOT enter, should NOT change timer time prop', function () {
-        const mockEvent = {
-            key: 'a',
-            target: {
-                value: '10000'
-            }
-        }
+    it('tests method handleTimeChange', () => {
+        const mockedDate = new Date(2019, 3, 30)
+        global.Date = jest.fn(() => mockedDate)
         const wrapper = shallow(<App />)
-        wrapper.simulate('change', mockEvent)
-        expect(wrapper).toMatchSnapshot()
+        wrapper.instance().handleTimeChange()
+        expect(wrapper).toMatchSnapshot()    
     })
 })

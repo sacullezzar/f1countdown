@@ -61,8 +61,6 @@ class Timer extends Component {
           }, 1000, self)
     }
 
-
-
     render () {
         let lights = []
         for(let i=0; i<5;i++){
