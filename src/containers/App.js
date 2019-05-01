@@ -2,8 +2,6 @@ import React, { Component } from 'react'
 import Timer from '../components/timer'
 import RaceData from '../components/raceData'
 import ResultsData from '../components/resultsData'
-
-
 import 'babel-polyfill'
 
 class App extends Component {
@@ -34,22 +32,17 @@ class App extends Component {
 
     render () {
         const { number, raceData, raceId } = this.state
-        if(number > 0) {
-            return (
+        return (
                 <React.Fragment>
                     <h1 style={{textAlign: "center"}}>F1 Countdown</h1>
                         <Timer time={number} />
                     {!this.state.isLoading && <RaceData raceData={raceData} handleTimeChange={this.handleTimeChange}/>}
-                </React.Fragment>
-            )} else {
-                return (
-                    <React.Fragment>
                     <h1 style={{textAlign: "center"}}>F1 Results</h1>
                         <ResultsData raceId={raceId} raceData={raceData}/>
                     {/* {!this.state.isLoading && <RaceData raceData={raceData} handleTimeChange={this.handleTimeChange}/>} */}
                     </React.Fragment>
                 )   
-            }
+            
     }
 }
 

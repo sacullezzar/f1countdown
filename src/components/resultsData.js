@@ -7,7 +7,8 @@ class ResultsData extends React.Component {
         super(props)
         this.state = {
             isLoading: true,
-            raceData: null
+            raceData: null,
+            winner: 'results will go here'
         }
     }
 
@@ -25,7 +26,7 @@ class ResultsData extends React.Component {
         let { isLoading, winner } = this.state
         if(!isLoading) {
             return (
-                {<ResultsList winner={winner}/> && }
+                <h1>{winner}</h1>
             )
         } else {
             return (
