@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import Timer from '../components/timer'
 import RaceData from '../components/raceData'
+import ResultsData from '../components/resultsData'
 import 'babel-polyfill'
 
 class App extends Component {
@@ -9,7 +10,8 @@ class App extends Component {
         this.state = {
             isLoading: true,
             number: 0,
-            raceData: null
+            raceData: null,
+            raceId: 1
         }
 
         this.handleTimeChange = this.handleTimeChange.bind(this)
@@ -29,14 +31,18 @@ class App extends Component {
     }
 
     render () {
-        const { number, raceData } = this.state
+        const { number, raceData, raceId } = this.state
         return (
-            <React.Fragment>
-                <h1 style={{textAlign: "center"}}>F1 Countdown</h1>
-                <Timer time={number}/>
-                {!this.state.isLoading && <RaceData raceData={raceData} handleTimeChange={this.handleTimeChange}/>}
-            </React.Fragment>
-        )
+                <React.Fragment>
+                    <h1 style={{textAlign: "center"}}>F1 Countdown</h1>
+                        <Timer time={number} />
+                    {!this.state.isLoading && <RaceData raceData={raceData} handleTimeChange={this.handleTimeChange}/>}
+                    <h1 style={{textAlign: "center"}}>F1 Results</h1>
+                        <ResultsData raceId={raceId} raceData={raceData}/>
+                    {/* {!this.state.isLoading && <RaceData raceData={raceData} handleTimeChange={this.handleTimeChange}/>} */}
+                    </React.Fragment>
+                )   
+            
     }
 }
 
