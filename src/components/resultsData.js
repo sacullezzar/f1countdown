@@ -6,27 +6,30 @@ class ResultsData extends React.Component {
     constructor(props) {
         super(props)
         this.state = {
-            isLoading: true,
-            raceData: null,
-            winner: 'results will go here'
+            isLoading: true
         }
     }
 
-    async componentDidMount() {
-        let { raceId } = this.props
-        const response = await fetch(`http://ergast.com/api/f1/current/${raceId}/results.json`)
-        const responseJson = await response.json()
-        this.setState({ isLoading: false, raceData: responseJson })
+    printResults() {
+        if (this.props.results) {
+            console.log(this.props.results[0].Results[0].Driver)
+            let driver = this.props.results[0].Results[0].Driver
+            return(
+                <div className="winner">
+                <h5>winner</h5>
+                <p>{driver.givenName+ ' ' + driver.familyName}</p>
+                </div>
+            )
+        }
     }
 
-
-
-
     render() {
-        let { isLoading, winner } = this.state
+        
+        let { isLoading } = this.props
         if(!isLoading) {
+            const results = this.printResults()
             return (
-                <h1>{winner}</h1>
+                <div>{results}</div>
             )
         } else {
             return (

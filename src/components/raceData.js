@@ -8,15 +8,22 @@ class RaceData extends React.Component {
     }
 
     handleChange(event) {
-        this.props.handleTimeChange(event.target.value)
+        let selectedRace = event.target.value
+        this.props.fetchResults(selectedRace)
+        
+        this.props.raceData.map(race => {
+            if (race.round === selectedRace) {
+                this.props.handleTimeChange(race.date + 'T' + race.time)
+            }
+        })
     }
 
     selector() {
-        return this.props.raceData.MRData.RaceTable.Races.map(race =>
+        return this.props.raceData.map(race =>
             <option 
             key={race.round} 
             className="dropdown-item" 
-            value={race.date + 'T' + race.time}>
+            value={race.round}>
             {race.raceName}
             </option>
         )      
