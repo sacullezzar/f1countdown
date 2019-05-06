@@ -19,10 +19,8 @@ class App extends Component {
     }
 
     componentDidMount() {
-        if (this.state.isLoading) {
-            this.fetchSeasonData()
             this.fetchResults(1)
-        }
+            this.fetchSeasonData()
     }
 
     async fetchSeasonData() {
@@ -55,7 +53,7 @@ class App extends Component {
                     <h1 style={{textAlign: "center"}}>F1 Countdown</h1>
                         <Timer time={number} />
                     {!isLoading && <RaceData raceData={raceData} fetchResults={this.fetchResults} handleTimeChange = {this.handleTimeChange}/>}
-                    {number < 0 && 
+                    {(number <= 0 && !isLoading)&& 
                     <React.Fragment>
                         <h1 style={{textAlign: "center"}}>F1 Results</h1> 
                         <ResultsData results={resultsData} isLoading={isLoading}/>

@@ -11,31 +11,31 @@ class ResultsData extends React.Component {
     }
 
     printResults() {
-        if (this.props.results) {
-            console.log(this.props.results[0].Results[0].Driver)
-            let driver = this.props.results[0].Results[0].Driver
+        console.log(this.props)
+        if (this.props.results && this.props.results[0]) {
+            let raceInfo = this.props.results[0].Results
+            let winner = raceInfo[0].Driver
+            let topTen = (driver) => {
+                <li>{driver.Driver.givenName}</li>
+            }
             return(
                 <div className="winner">
-                <h5>winner</h5>
-                <p>{driver.givenName+ ' ' + driver.familyName}</p>
+                <h4>First Place:</h4>
+                <p>{winner.givenName+ ' ' + winner.familyName}</p>
+                <ol>{this.props.results[0].Results.map(topTen)}</ol>
                 </div>
             )
         }
     }
 
     render() {
-        
         let { isLoading } = this.props
-        if(!isLoading) {
-            const results = this.printResults()
-            return (
-                <div>{results}</div>
-            )
-        } else {
-            return (
-                <React.Fragment>Loading!</React.Fragment>
-            )
-        }
+        let results = this.printResults()
+        return (
+            <React.Fragment>
+                {!isLoading && results}
+            </React.Fragment>
+        )
     }
 }
 
