@@ -16,7 +16,7 @@ class ResultsData extends React.Component {
             let raceInfo = this.props.results[0].Results
             let winner = raceInfo[0].Driver
             let topTen = (driver) => {
-                <li>{driver.Driver.givenName}</li>
+                return <li>{driver.Driver.givenName}</li>
             }
             return(
                 <div className="winner">
