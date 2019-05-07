@@ -15,14 +15,16 @@ class ResultsData extends React.Component {
         if (this.props.results && this.props.results[0]) {
             let raceInfo = this.props.results[0].Results
             let winner = raceInfo[0].Driver
-            let topTen = (driver) => {
-                return <li>{driver.Driver.givenName}</li>
+            let topTen = (driver, i) => {
+                while (i >= 1 && i <= 9){
+                    return <li>{driver.Driver.givenName[0] +'. ' + driver.Driver.familyName}</li>
+                }
             }
             return(
                 <div className="winner">
                 <h4>First Place:</h4>
                 <p>{winner.givenName+ ' ' + winner.familyName}</p>
-                <ol>{this.props.results[0].Results.map(topTen)}</ol>
+                <ol start="2">{this.props.results[0].Results.map(topTen)}</ol>
                 </div>
             )
         }

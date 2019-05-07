@@ -23,7 +23,8 @@ class RaceData extends React.Component {
             <option 
             key={race.round} 
             className="dropdown-item" 
-            value={race.round}>
+            value={race.round}
+            placeholder="Select Race">
             {race.raceName}
             </option>
         )      
@@ -35,7 +36,8 @@ class RaceData extends React.Component {
                 <div className="input-group-prepend">
                     <label className="input-group-text" htmlFor="inputGroupSelect01">Races</label>
                 </div>
-                <select className="custom-select" onChange={this.handleChange}>{this.selector()}</select>
+                <select className="custom-select" onChange={this.handleChange}>
+                <option value="">Select Race</option>{this.selector()}</select>
             </div>
         )
     }
