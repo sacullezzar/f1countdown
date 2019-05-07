@@ -14,15 +14,29 @@ class App extends Component {
             raceId: 1
         }
 
+        this.fetchResults = this.fetchResults.bind(this)
         this.handleTimeChange = this.handleTimeChange.bind(this)
     }
 
-    async componentDidMount() {
-        const response = await fetch('https://ergast.com/api/f1/current.json')
-        const responseJson = await response.json()
-        this.setState({ isLoading: false, raceData: responseJson })
+    componentDidMount() {
+            this.fetchResults(1)
+            this.fetchSeasonData()
     }
 
+    async fetchSeasonData() {
+        const season = await fetch('https://ergast.com/api/f1/current.json')
+        const seasonJson = await season.json()
+        this.setState({ isLoading: false, raceData: seasonJson.MRData.RaceTable.Races })
+    }
+
+    async fetchResults(roundNumber) {
+        let results = await fetch(`https://ergast.com/api/f1/current/${roundNumber}/results.json`)
+        let resultsJson = await results.json()
+        this.setState({ resultsData: resultsJson.MRData.RaceTable.Races})
+    }
+
+
+    // time = race.date + 'T' + race.time
     handleTimeChange(time) {
         const t1 = new Date
         const t2 = new Date(time)
@@ -30,16 +44,20 @@ class App extends Component {
         this.setState({ number: date})
     }
 
+    
+
     render () {
-        const { number, raceData, raceId } = this.state
+        const { number, raceData, resultsData, isLoading } = this.state
         return (
                 <React.Fragment>
                     <h1 style={{textAlign: "center"}}>F1 Countdown</h1>
                         <Timer time={number} />
-                    {!this.state.isLoading && <RaceData raceData={raceData} handleTimeChange={this.handleTimeChange}/>}
-                    <h1 style={{textAlign: "center"}}>F1 Results</h1>
-                        <ResultsData raceId={raceId} raceData={raceData}/>
-                    {/* {!this.state.isLoading && <RaceData raceData={raceData} handleTimeChange={this.handleTimeChange}/>} */}
+                    {!isLoading && <RaceData raceData={raceData} fetchResults={this.fetchResults} handleTimeChange = {this.handleTimeChange}/>}
+                    {(number <= 0 && !isLoading)&& 
+                    <React.Fragment>
+                        <h1 style={{textAlign: "center"}}>F1 Results</h1> 
+                        <ResultsData results={resultsData} isLoading={isLoading}/>
+                        </React.Fragment>}
                     </React.Fragment>
                 )   
             

@@ -6,33 +6,38 @@ class ResultsData extends React.Component {
     constructor(props) {
         super(props)
         this.state = {
-            isLoading: true,
-            raceData: null,
-            winner: 'results will go here'
+            isLoading: true
         }
     }
 
-    async componentDidMount() {
-        let { raceId } = this.props
-        const response = await fetch(`http://ergast.com/api/f1/current/${raceId}/results.json`)
-        const responseJson = await response.json()
-        this.setState({ isLoading: false, raceData: responseJson })
+    printResults() {
+        console.log(this.props)
+        if (this.props.results && this.props.results[0]) {
+            let raceInfo = this.props.results[0].Results
+            let winner = raceInfo[0].Driver
+            let topTen = (driver, i) => {
+                while (i >= 1 && i <= 9){
+                    return <li>{driver.Driver.givenName[0] +'. ' + driver.Driver.familyName}</li>
+                }
+            }
+            return(
+                <div className="winner">
+                <h4>First Place:</h4>
+                <p>{winner.givenName+ ' ' + winner.familyName}</p>
+                <ol start="2">{this.props.results[0].Results.map(topTen)}</ol>
+                </div>
+            )
+        }
     }
-
-
-
 
     render() {
-        let { isLoading, winner } = this.state
-        if(!isLoading) {
-            return (
-                <h1>{winner}</h1>
-            )
-        } else {
-            return (
-                <React.Fragment>Loading!</React.Fragment>
-            )
-        }
+        let { isLoading } = this.props
+        let results = this.printResults()
+        return (
+            <React.Fragment>
+                {!isLoading && results}
+            </React.Fragment>
+        )
     }
 }
 
