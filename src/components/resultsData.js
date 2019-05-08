@@ -1,5 +1,4 @@
 import React from 'react'
-import ResultsList from './resultsList'
 import 'babel-polyfill'
 
 class ResultsData extends React.Component {
