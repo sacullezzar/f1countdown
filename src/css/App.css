@@ -1,0 +1,12 @@
+.container {
+    display: flex;
+}
+
+.title-box {
+    width: 'auto';
+}
+.title {
+    font-size: 4em;
+    margin: 10,20,30,40;
+    background-color: blueviolet;
+}
