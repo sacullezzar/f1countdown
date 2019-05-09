@@ -6,6 +6,9 @@ const Winner = styled.h2 `
 font-size: 1.2em
 background-color: pink`
 const Runnerup = styled.h4 `font-size: 0.8em`
+const Title = styled.h2 `
+font-size: 1.4em
+color:blue`
 
 
 class ResultsData extends React.Component {
@@ -28,7 +31,7 @@ class ResultsData extends React.Component {
             }
             return(
                 <div className="winner">
-                <h4>First Place:</h4>
+                <Title>First Place:</Title>
                 <Winner>{winner.givenName+ ' ' + winner.familyName}</Winner>
                 <ol start="2">{this.props.results[0].Results.map(topTen)}</ol>
                 </div>

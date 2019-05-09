@@ -6,7 +6,12 @@
     width: 'auto';
 }
 .title {
+    font-family: 'Monoton', sans-serif;
     font-size: 4em;
     margin: 10,20,30,40;
     background-color: blueviolet;
+}
+
+.wrapper {
+    font-family: 'Roboto', sans-serif;
 }

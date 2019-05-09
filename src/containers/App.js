@@ -2,7 +2,7 @@ import React, { Component, Fragment } from 'react'
 import Timer from '../components/timer'
 import RaceData from '../components/raceData'
 import ResultsData from '../components/resultsData'
-// import '../css/App.css'
+import '../css/App.css'
 import 'babel-polyfill'
 
 class App extends Component {
@@ -61,22 +61,23 @@ class App extends Component {
             isLoading,
             visible } = this.state
         return (
-                <Fragment>
-                    <div className='container'>
-                    <div className="title-box"></div>
+            <Fragment>
+            <div className="title-box">
                     <h1 className='title'>F1 Countdown</h1>
+                    </div>
+                    <div className="wrapper">
                         <Timer time={number} />
                     {!isLoading && 
                     <Fragment>
                     <RaceData raceData={raceData} fetchResults={this.fetchResults} handleTimeChange = {this.handleTimeChange}/>
                     <button onClick={this.showResults}>Show Results</button>
                     </Fragment>}
-                    </div>
                     {(visible && number <= 0 && !isLoading) && 
                     <Fragment>
                         <h1 className='title' style={{textAlign: "center"}}>F1 Results</h1> 
                         <ResultsData results={resultsData} isLoading={isLoading}/>
                         </Fragment>}
+                    </div>
                     </Fragment>
                 )   
             
