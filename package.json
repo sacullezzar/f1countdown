@@ -5,6 +5,7 @@
   "private": true,
   "scripts": {
     "build": "webpack --mode production",
+    "start": "npm run build && node server.js",
     "dev": "./node_modules/.bin/webpack-dev-server --config ./webpack/webpack.dev.config.js",
     "test": "jest",
     "test:watch": "jest --watch",
@@ -39,6 +40,8 @@
     "react-dom": "^16.8.4",
     "react-redux": "^6.0.1",
     "redux": "^4.0.1",
+    "styled-components": "^4.2.0",
+    "webfontloader": "^1.6.28",
     "webpack": "^4.29.6",
     "webpack-cli": "^3.3.0",
     "webpack-dev-server": "^3.2.1"

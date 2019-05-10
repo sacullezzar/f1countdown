@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-
+import '../css/Timer.css'
 
 class Timer extends Component {
     constructor(props) {
@@ -81,7 +81,7 @@ class Timer extends Component {
         }
         if(isLoading) {
             return  (
-                <div className="my-2" style={{ textAlign: 'center' }}>
+                <div className="lightbar my-2" style={{ textAlign: 'center' }}>
                         {lights.map(function(light){
                             return light
                         })}

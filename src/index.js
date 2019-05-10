@@ -1,8 +1,12 @@
 import React from 'react'
-import { render } from 'react-dom'
+import ReactDOM from 'react-dom'
 import App from './containers/App'
+import WebFont from 'webfontloader'
+import './css/index.css'
 
-render(
-        <App />,
-    document.getElementById('app')
-)
+WebFont.load({
+    google: {
+        families: ['Monoton: cursive,300,400,700', 'Roboto: sans-serif', 'sans-serif']
+    }
+})
+ReactDOM.render(<App />, document.getElementById('app'))
