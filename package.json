@@ -5,6 +5,7 @@
   "private": true,
   "scripts": {
     "build": "webpack --mode production",
+    "start": "npm run build && node server.js",
     "dev": "./node_modules/.bin/webpack-dev-server --config ./webpack/webpack.dev.config.js",
     "test": "jest",
     "test:watch": "jest --watch",

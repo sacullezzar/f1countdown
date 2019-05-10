@@ -1,6 +1,6 @@
 import React from 'react'
 
-class RaceData extends React.Component {
+class RaceSelect extends React.Component {
     constructor(props) {
         super(props)
         this.selector = this.selector.bind(this)
@@ -43,4 +43,4 @@ class RaceData extends React.Component {
     }
 }
 
-export default RaceData
+export default RaceSelect

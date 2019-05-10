@@ -1,16 +1,17 @@
 import React, { Component, Fragment } from 'react'
 import Timer from '../components/timer'
-import RaceData from '../components/raceData'
+import RaceData from '../components/raceSelect'
 import ResultsData from '../components/resultsData'
 import '../css/App.css'
 import 'babel-polyfill'
+
 
 class App extends Component {
     constructor(props) {
         super(props)
         this.state = {
             isLoading: true,
-            number: 0,
+            counter: 0,
             raceData: null,
             raceId: 1,
             visible: false
@@ -21,7 +22,7 @@ class App extends Component {
     }
 
     componentDidMount() {
-            this.fetchResults(1)
+            this.fetchResults(this.state.raceId)
             this.fetchSeasonData()
     }
 
@@ -43,7 +44,7 @@ class App extends Component {
         const t1 = new Date
         const t2 = new Date(time)
         const date = Math.round((t2 - t1)/1000)
-        this.setState({ number: date})
+        this.setState({ counter: date})
     }
 
     showResults() {
@@ -55,29 +56,29 @@ class App extends Component {
     
 
     render () {
-        const { number,
+        const { counter,
             raceData,
             resultsData,
             isLoading,
             visible } = this.state
         return (
             <Fragment>
-            <div className="title-box">
+            <div className="main">
                     <h1 className='title'>F1 Countdown</h1>
-                    </div>
                     <div className="wrapper">
-                        <Timer time={number} />
+                        <Timer time={counter} />
                     {!isLoading && 
                     <Fragment>
                     <RaceData raceData={raceData} fetchResults={this.fetchResults} handleTimeChange = {this.handleTimeChange}/>
                     <button onClick={this.showResults}>Show Results</button>
                     </Fragment>}
-                    {(visible && number <= 0 && !isLoading) && 
+                    {(visible && counter <= 0 && !isLoading) && 
                     <Fragment>
                         <h1 className='title' style={{textAlign: "center"}}>F1 Results</h1> 
-                        <ResultsData results={resultsData} isLoading={isLoading}/>
-                        </Fragment>}
-                    </div>
+                    <ResultsData results={resultsData} isLoading={isLoading}/>
+                    </Fragment>}
+                </div>
+            </div>
                     </Fragment>
                 )   
             
