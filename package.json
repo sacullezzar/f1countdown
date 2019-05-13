@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "F1 Countdown App",
   "private": true,
+  "main": "index.js",
   "scripts": {
     "build": "webpack --mode=production",
     "start": "npm run build && node server.js",
