@@ -67,6 +67,7 @@
     "enzyme-adapter-react-16": "^1.11.2",
     "enzyme-to-json": "^3.3.5",
     "flow": "^0.2.3",
+    "heroku": "^7.24.3",
     "identity-obj-proxy": "^3.0.0",
     "jest": "^24.5.0",
     "less": "^3.9.0",
