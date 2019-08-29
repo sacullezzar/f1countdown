@@ -1,5 +1,5 @@
 import React from 'react'
-import Timer from '../components/Timer.js'
+import Timer from '../src/components/Timer.js'
 import { JestEnvironment } from '@jest/environment'
 import { JestFakeTimers } from '@jest/fake-timers'
 
