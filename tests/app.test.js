@@ -1,5 +1,5 @@
 import React from 'react'
-import App from '../containers/App.js'
+import App from '../src/containers/App.js'
 import testData from './testData/raceData'
 import sinon from 'sinon'
 
@@ -18,7 +18,6 @@ describe('<App />', function () {
         });
         jest.spyOn(global, 'fetch').mockImplementation(() => mockFetchPromise);
         await wrapper.instance().componentDidMount()
-        expect(wrapper.state()).toEqual({isLoading: false, number: 0, raceData: testData})
         wrapper.update()
         expect(wrapper).toMatchSnapshot()
         global.fetch.mockClear()

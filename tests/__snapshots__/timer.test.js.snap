@@ -32,7 +32,7 @@ exports[`<Timer /> componentDidUpdate function updates the component when set ne
 
 exports[`<Timer /> first test 1`] = `
 <div
-  className="my-2"
+  className="lightbar my-2"
   style={
     Object {
       "textAlign": "center",
@@ -102,13 +102,7 @@ exports[`<Timer /> timer function should match snapshot after Timer finishes 1`]
       }
     }
   >
-    Past Race 
-    <br />
-    <a
-      href=""
-    >
-      View results
-    </a>
+    Weeks: 0 - Days: 0 - Hours: 0 - Minutes: 0 - Seconds: 0
   </h3>
 </Fragment>
 `;
