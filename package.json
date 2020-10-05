@@ -39,6 +39,7 @@
     "@emotion/core": "^10.0.35",
     "babel-polyfill": "^6.26.0",
     "es6-promise": "^4.2.6",
+    "express": "^4.17.1",
     "google-map-react": "^2.0.8",
     "isomorphic-fetch": "^3.0.0",
     "leaflet": "^1.6.0",
