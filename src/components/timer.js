@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import '../css/Timer.css'
+// import '../css/Timer.css'
 
 class Timer extends Component {
     constructor(props) {
@@ -7,50 +7,53 @@ class Timer extends Component {
 
         this.formatTimer = this.formatTimer.bind(this)
         this.timer = this.timer.bind(this)
+        this.timerText = this.timerText.bind(this)
         this.state = {
             time: null,
             isLoading: false,
-            seconds: props.time,
-            showResults: false
+            seconds: props.time
         }
     }
 
     componentDidMount() {
+        this._isMounted = true
         this.timer(this.state.seconds)
     }
 
     componentDidUpdate(prevProps) {
-        if (this.props.time !== prevProps.time) {
+        if (this.props.time !== prevProps.time && this._isMounted) {
             this.setState( { seconds: this.props.time })
             clearInterval(this.interval)
             this.timer(this.props.time)
         }
     }
 
+    componentWillUnmount() {
+        this._isMounted = false
+    }
+
     formatTimer(initialSeconds) {
         if (initialSeconds <= 0) {
             clearInterval(this.interval)
-            return "Weeks: 0 - Days: 0 - Hours: 0 - Minutes: 0 - Seconds: 0"
+            return "Loading..."
         }
-        let weeks
-        let days
-        let hours
-        let minutes
-        let seconds
+
         let trackedSeconds = initialSeconds
 
-        weeks = Math.floor(trackedSeconds / (60 * 60 * 24 * 7))
-        trackedSeconds -= weeks * (60 * 60 * 24 * 7)
-        days = Math.floor(trackedSeconds / (60 * 60 * 24))
-        trackedSeconds -= days * (60 * 60 * 24)
-        hours = Math.floor(trackedSeconds / (60 * 60))
-        trackedSeconds -= hours * (60 * 60)
-        minutes = Math.floor(trackedSeconds / 60)
-        trackedSeconds -= minutes * 60
-        seconds = trackedSeconds
+        const weeks = this.timerText(Math.floor(trackedSeconds / (60 * 60 * 24 * 7)), 'Week')
+            trackedSeconds -= Math.floor(trackedSeconds / (60 * 60 * 24 * 7)) * (60 * 60 * 24 * 7)
 
-        let format = "Weeks: " + weeks + " - Days: " + days + " - Hours: " + hours + " - Minutes: " + minutes + " - Seconds: " + seconds
-        return format
+        const days = this.timerText(Math.floor(trackedSeconds / (60 * 60 * 24)), 'Day')
+            trackedSeconds -= Math.floor(trackedSeconds / (60 * 60 * 24)) * (60 * 60 * 24)
+
+        const hours = this.timerText(Math.floor(trackedSeconds / (60 * 60)), 'Hour')
+            trackedSeconds -= Math.floor(trackedSeconds / (60 * 60)) * (60 * 60)
+
+        const minutes = this.timerText(Math.floor(trackedSeconds / 60), 'Minute')
+            trackedSeconds -= Math.floor(trackedSeconds / 60) * 60
+
+        const seconds = this.timerText(Math.floor(trackedSeconds), 'Second')
+        return `${weeks} ${days} ${hours} ${minutes} ${seconds}`
     }
 
     timer(seconds) {
@@ -63,8 +66,11 @@ class Timer extends Component {
           }, 1000, self)
     }
 
-    showResults() {
-        this.setState({showResults: true})
+    timerText(value, type) {
+        if (type !== 'Second') {
+            return value === 1 ? `${value} ${type},` : value === 0 ? `` : `${value} ${type}s,`
+        }
+        return value === 1 ? `${value} ${type}.` : `${value} ${type}s.`
     }
 
     render () {
@@ -79,7 +85,7 @@ class Timer extends Component {
                 <span className="sr-only">Loading...</span>
             </div>)
         }
-        if(isLoading) {
+        if(isLoading && this._isMounted) {
             return  (
                 <div className="lightbar my-2" style={{ textAlign: 'center' }}>
                         {lights.map(function(light){
