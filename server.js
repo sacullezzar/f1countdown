@@ -12,5 +12,5 @@ app.get('/*', (req, res) => {
 })
 
 app.listen(port, () => {
-  console.log('Counting down on 8080')
+  console.log(`Counting down on ${port}`)
 })

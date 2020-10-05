@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "F1 Countdown App",
   "private": true,
+  "main": "index.js",
   "scripts": {
     "preinstall": "npx npm-force-resolutions",
     "build": "webpack --mode production",
