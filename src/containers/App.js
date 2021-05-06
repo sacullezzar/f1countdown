@@ -7,6 +7,8 @@ import {
 } from 'react-router-dom'
 import Countdown from '../containers/Countdown'
 import RaceSelect from '../components/raceSelect'
+import DriversChamp from './DriversChamp'
+import TeamChamp from './TeamChamp'
 
 class App extends Component {
     constructor() {
@@ -25,11 +27,17 @@ class App extends Component {
     async fetchData() {
         const season = await fetch('https://ergast.com/api/f1/current.json')
         const seasonJson = await season.json()
-        this.setState({ isLoading: false, seasonData: seasonJson.MRData.RaceTable.Races })
+        this.setState({ isLoading: true, seasonData: seasonJson.MRData.RaceTable.Races })
+        const standings = await fetch('https://ergast.com/api/f1/current/driverStandings.json')
+        const standingsJson = await standings.json()
+        this.setState({ isLoading: true, standingsData: standingsJson.MRData.StandingsTable.StandingsLists })
+        const teamStandings = await fetch('https://ergast.com/api/f1/current/constructorStandings.json')
+        const teamStandingsJson = await teamStandings.json()
+        this.setState({ isLoading: false, teamData: teamStandingsJson.MRData.StandingsTable.StandingsLists})
     }
 
     render() {
-        const { seasonData, isLoading } = this.state
+        const { seasonData, standingsData, teamData, isLoading } = this.state
         return (
             <Router>
             <div>
@@ -57,10 +65,10 @@ class App extends Component {
                     {seasonData && seasonData.length ? <RaceSelect  seasonData={seasonData}/> : <h2>Loading...</h2>}
                 </Route>
                 <Route path="/driversStandings">
-                    <Users />
+                    {standingsData && standingsData.length ? <DriversChamp  standingsData={standingsData}/> : <h2>Loading...</h2>}
                 </Route>
                 <Route path="/constructorsStandings">
-                    <About />
+                    {teamData && teamData.length ? <TeamChamp teamData={teamData}/> : <h2>Loading...</h2>}
                 </Route>
                 <Route path="/">
                     {seasonData && seasonData.length ? <Countdown seasonData={seasonData} isLoading={isLoading}/> : <h2>Loading...</h2>}
@@ -70,14 +78,6 @@ class App extends Component {
         </Router>
         )
     }
-}
-
-function Users() {
-    return <h2>Users</h2>
-}
-
-function About() {
-    return <h2>About</h2>
 }
 
 export default App

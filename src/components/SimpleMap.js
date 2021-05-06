@@ -16,7 +16,8 @@ class SimpleMap extends Component {
             <Map 
                 center={raceTrack}
                 zoom={15}
-                style={{ width: '100%', height: '900px'}}>
+                style={{ width: '90%', height: '900px', position: 'relative',
+                left: '5%' }}>
                 <TileLayer url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"/>
             </Map>
         )

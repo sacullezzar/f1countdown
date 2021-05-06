@@ -8,7 +8,7 @@ const home = __dirname + '/dist'
 app.use(express.static(home))
 
 app.get('/*', (req, res) => {
-  res.sendFile(path.resolve(home, 'index.html'))
+  res.sendFile(path.join(home, 'index.html'))
 })
 
 app.listen(port, () => {

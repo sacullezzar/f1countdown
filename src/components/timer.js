@@ -21,7 +21,7 @@ class Timer extends Component {
     }
 
     componentDidUpdate(prevProps) {
-        if (this.props.time !== prevProps.time && this._isMounted) {
+        if (this._isMounted && this.props.time !== prevProps.time) {
             this.setState( { seconds: this.props.time })
             clearInterval(this.interval)
             this.timer(this.props.time)
