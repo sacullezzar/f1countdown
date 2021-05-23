@@ -33,8 +33,10 @@ class Countdown extends Component {
         if (this.state.seasonData && this.state.seasonData.length) {
             this.setState({ isLoading: false })
             const now = new Date
+            let raceStart
             for (let i = 0; i < this.state.seasonData.length; i++) {
-                if (new Date(this.state.seasonData[i].date) >= new Date) {
+                raceStart = new Date(this.state.seasonData[i].date + 'T' + this.state.seasonData[i].time)
+                if (now.getTime() <= raceStart.getTime()) {
                     this.setState({ nextRace: this.state.seasonData[i]}, () => {
                         this.handleTimeChange(this.state.nextRace.date + 'T' + this.state.nextRace.time)
                     })
