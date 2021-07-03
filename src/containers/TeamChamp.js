@@ -29,7 +29,7 @@ class TeamChamp extends Component {
         }
         if (standingsData && standingsData.length) {
             return (
-                <div>
+                <div className="main wrapper">
                     <table>
                         <thead>
                             <tr>
