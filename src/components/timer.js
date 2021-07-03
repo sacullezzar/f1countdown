@@ -29,7 +29,7 @@ class Timer extends Component {
     }
 
     componentWillUnmount() {
-        this._isMounted - false
+        this._isMounted = false
         this.setState = (state, callback) => {
             return;
         }
