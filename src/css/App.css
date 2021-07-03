@@ -11,9 +11,23 @@
     text-align: center;
 }
 
+.piano {
+    padding: 1%;
+    width: 100%;
+    height: 100%;
+    /* Fallback for browsers that don't support gradients */
+    background: black;
+    /* For Safari 5.1 to 6.0 */
+    background: -webkit-linear-gradient(0deg, black 75%, black 79%, silver 80%, white 81%, silver 82%, black 83%);
+    /* For Internet Explorer 10 */
+    background: -ms-linear-gradient(0deg, black 75%, black 79%, silver 80%, white 81%, silver 82%, black 83%);
+    /* Standard syntax */
+    background: linear-gradient(60deg, black 75%, black 79%, silver 80%, white 81%, silver 82%, black 83%);
+}
+
 .container {
     display: flex;
-    background: none;
+    background-color: black;
 }
 
 .title-box {
@@ -22,11 +36,11 @@
 .title {
     font-family: 'Monoton', sans-serif;
     font-size: 4em;
-    margin: 10,20,30,40;
     color:white;
 }
 
-.wrapper {
+.wrapper, .piano {
     color:white;
+    font-size: 2em;
     font-family: 'Roboto', sans-serif;
 }

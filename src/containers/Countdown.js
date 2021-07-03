@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import Title from '../components/Title'
 import Timer from '../components/timer'
 import SimpleMap from '../components/SimpleMap'
-// import '../css/App.css'
+import '../css/App.css'
 
 
 class Countdown extends Component {
