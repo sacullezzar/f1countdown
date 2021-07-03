@@ -1,8 +1,5 @@
 import React, { Component } from 'react'
-import Title from '../components/Title'
-import Timer from '../components/timer'
-import SimpleMap from '../components/SimpleMap'
-// import '../css/App.css'
+import ResultsChart from '../components/resultsChart'
 
 
 class DriversChamp extends Component {
@@ -14,12 +11,9 @@ class DriversChamp extends Component {
         }
     }
 
-    componentDidMount() {
-
-    }
-
     render () {
         const { standingsData, isLoading } = this.state
+        const { raceResults } = this.props
         const lights = []
         for(let i=0; i<5;i++){
             lights.push(
@@ -27,29 +21,34 @@ class DriversChamp extends Component {
                 <span className="sr-only">Loading...</span>
             </div>)
         }
-        if (standingsData[0].DriverStandings.length) {
+        if (standingsData[0].DriverStandings.length && !isLoading) {
             return (
-                <div>
-                    <table>
-                        <thead>
-                            <tr>
-                                <th>Position</th>
-                                <th>Driver</th>
-                                <th>Points</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                    {standingsData[0].DriverStandings.map((driver) => {
-                        return (
-                            <tr key={driver.position}>
-                                <td>{driver.position}</td>
-                                <td>{driver.Driver.givenName + ' ' + driver.Driver.familyName}</td>
-                                <td>{driver.points}</td>
-                            </tr>
-                        )
-                    })}
-                        </tbody>
-                    </table>
+                <div className="main wrapper">
+                    <div>
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Position</th>
+                                    <th>Driver</th>
+                                    <th>Points</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                        {standingsData[0].DriverStandings.map((driver) => {
+                            return (
+                                <tr key={driver.position}>
+                                    <td>{driver.position}</td>
+                                    <td>{driver.Driver.givenName + ' ' + driver.Driver.familyName}</td>
+                                    <td>{driver.points}</td>
+                                </tr>
+                            )
+                        })}
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                        <ResultsChart data={raceResults} drivers={standingsData[0].DriverStandings} />
+                    </div>
                 </div>
             )
         } else {

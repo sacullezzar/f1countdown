@@ -30,6 +30,10 @@ class Timer extends Component {
 
     componentWillUnmount() {
         this._isMounted = false
+        this.setState = (state, callback) => {
+            return;
+        }
+        
     }
 
     formatTimer(initialSeconds) {
@@ -70,7 +74,7 @@ class Timer extends Component {
         if (type !== 'Second') {
             return value === 1 ? `${value} ${type},` : value === 0 ? `` : `${value} ${type}s,`
         }
-        return value === 1 ? `${value} ${type}.` : `${value} ${type}s.`
+        return value === 1 ? `${value} ${type}.` : `${value} ${type}s,`
     }
 
     render () {
